@@ -3,18 +3,52 @@ import { resolve } from 'path';
 import { defineConfig } from 'vite'
 
 export default defineConfig({
+  // server: {
+  //   watch: {
+  //     ignored: ['!**/modules/events-massive/**'],
+  //   }
+  // },
+  // optimizeDeps: {
+  //   exclude: ['events-massive'],
+  emptyOutDir: true,
   build: {
+    // minify: "esBuild",
+    
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
+        event: resolve(__dirname, './client/event/index.html'),
         // conf: resolve(__dirname, 'src/conf/index.html')
       },
       output: {
-        entryFileNames: 'entry-[name].js'
+        entryFileNames: `entry-[name].js`,
+        assetFileNames: `assets/[name].[ext]`,
+        chunkFileNames: "[name].js",
       }
     }
   }
 });
+
+
+// // vite.config.js
+// import { fileURLToPath } from 'url'
+// import { defineConfig } from 'vite'
+// import vue from '@vitejs/plugin-vue'
+
+// export default defineConfig({
+//   plugins: [vue()],
+//   build: {
+//     rollupOptions: {
+//       input: {
+//         appSchoool: fileURLToPath(new URL('./resources/school/index.html', import.meta.url)),
+//         appStudent: fileURLToPath(new URL('./resources/student/index.html', import.meta.url)),
+//         appAuth: fileURLToPath(new URL('./resources/auth/index.html', import.meta.url)),
+//       },
+//     },
+//   },
+// })
+
+
 
 // export default {
 //   ...,

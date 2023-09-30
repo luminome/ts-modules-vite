@@ -11,6 +11,10 @@ node_modules
 dist
 public
 src
+client
+modules
+!build/modules
+
 dist-ssr
 *.local
 
