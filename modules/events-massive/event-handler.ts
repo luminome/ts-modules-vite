@@ -133,6 +133,13 @@ const event_cursor = (cb:Function, evt:Event, opt:event_options) => {
         (ET.interval = setInterval((_: TimerHandler) => {increment()}, tgt_has_interval));
     }
 
+    if(evt.type === 'mouseover'){
+        ET.type_meta = undefined;
+        ET.state = evt.type;
+        ET.mode = 'set-offset-pos';
+        clear_interval();
+        cb(evt, ET);
+    }
 
 
     if(evt.type === 'mouseout' || evt.type === 'touchcancel'){
@@ -368,6 +375,7 @@ const event = (target:Element, callback:Function, opt:unknown = opt_default):eve
         opts.context_disable && target.addEventListener('contextmenu', (evt) => {evt.preventDefault();});
         return ET;
     }
+    
     if(opts.type === 'keyboard'){
         if(opts.interval === 0)opts.interval = 50; //default key-repeat to 50ms
         target.addEventListener('keydown', (evt) => {event_keyboard(callback, evt as KeyboardEvent, opts)});
