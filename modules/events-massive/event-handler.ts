@@ -357,7 +357,8 @@ const event = (target:Element, callback:Function, opt:unknown = opt_default):eve
     if(opts.type === 'screen'){
         target.addEventListener('wheel', (evt) => {event_cursor(callback, evt, opts)}, false);
         target.addEventListener('mouseup', (evt) => {event_cursor(callback, evt, opts)}, false);
-        target.addEventListener('mouseleave', (evt) => {event_cursor(callback, evt, opts)}, false);
+        target.addEventListener('mouseover', (evt) => { event_cursor(callback, evt, opts); }, false);
+        target.addEventListener('mouseout', (evt) => {event_cursor(callback, evt, opts)}, false);
         target.addEventListener('mousedown', (evt) => {event_cursor(callback, evt, opts)}, false);
         target.addEventListener('mousemove', (evt) => {event_cursor(callback, evt, opts)}, false);
         target.addEventListener('touchstart', (evt) => {event_cursor(callback, evt, opts)}, false);
