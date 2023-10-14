@@ -135,7 +135,7 @@ const event_cursor = (cb:Function, evt:Event, opt:event_options) => {
 
 
 
-    if(evt.type === 'mouseleave' || evt.type === 'touchcancel'){
+    if(evt.type === 'mouseout' || evt.type === 'touchcancel'){
         ET.type_meta = undefined;
         ET.state = evt.type;
         ET.mode = 'set-offset-pos';

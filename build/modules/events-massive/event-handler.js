@@ -83,7 +83,7 @@ const event_cursor = (cb, evt, opt) => {
         //ET.state === 'down' && !ET.interval && 
         (ET.interval = setInterval((_) => { increment(); }, tgt_has_interval));
     };
-    if (evt.type === 'mouseleave' || evt.type === 'touchcancel') {
+    if (evt.type === 'mouseout' || evt.type === 'touchcancel') {
         ET.type_meta = undefined;
         ET.state = evt.type;
         ET.mode = 'set-offset-pos';
